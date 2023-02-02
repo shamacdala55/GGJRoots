@@ -62,5 +62,25 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+protected:
+	void StartCrouching();
+	void StopCrouching();
+
+
+	void LookUp(float Val);
+	void Turn(float Val);
+
+
+
+	void MoveForward(float Val);
+	void MoveRight(float Val);
+
+public:
+
+
+	// Called to bind functionality to input
+	
+
 };
 

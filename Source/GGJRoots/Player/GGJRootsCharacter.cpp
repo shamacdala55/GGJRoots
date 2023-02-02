@@ -84,7 +84,71 @@ void AGGJRootsCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 		//Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AGGJRootsCharacter::Look);
 
+		PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AGGJRootsCharacter::Jump);
+		PlayerInputComponent->BindAction("Jump", IE_Released, this, &AGGJRootsCharacter::StopJumping);
+
+
+
+		//PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AGGJRootsCharacter::BeginInteract);
+		//PlayerInputComponent->BindAction("Interact", IE_Released, this, &AGGJRootsCharacter::EndInteract);
+
+
+
+
+		PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &AGGJRootsCharacter::StartCrouching);
+		PlayerInputComponent->BindAction("Crouch", IE_Released, this, &AGGJRootsCharacter::StopCrouching);
+
+		PlayerInputComponent->BindAxis("MoveForward", this, &AGGJRootsCharacter::MoveForward);
+		PlayerInputComponent->BindAxis("MoveRight", this, &AGGJRootsCharacter::MoveRight);
+
+
+		PlayerInputComponent->BindAxis("LookUp", this, &AGGJRootsCharacter::LookUp);
+		PlayerInputComponent->BindAxis("Turn", this, &AGGJRootsCharacter::Turn);
+
+
 	}
+
+}
+
+void AGGJRootsCharacter::StartCrouching()
+{
+	Crouch();
+}
+
+void AGGJRootsCharacter::StopCrouching()
+{
+	UnCrouch();
+}
+
+void AGGJRootsCharacter::LookUp(float Val)
+{
+	if (Val != 0.f)
+	{
+		AddControllerPitchInput(Val);
+	}
+}
+
+void AGGJRootsCharacter::Turn(float Val)
+{
+	if (Val != 0.f)
+	{
+		AddControllerYawInput(Val);
+	}
+}
+
+
+void AGGJRootsCharacter::MoveForward(float Val)
+{
+	if (Val != 0.f)
+	{
+		AddMovementInput(GetActorForwardVector(), Val);
+
+	}
+}
+
+void AGGJRootsCharacter::MoveRight(float Val)
+{
+	AddMovementInput(GetActorRightVector(), Val);
 
 }
 
