@@ -93,7 +93,7 @@ void AGGJRootsCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 
 		//Moving
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AGGJRootsCharacter::Move);
+		//EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AGGJRootsCharacter::Move);
 
 		//Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AGGJRootsCharacter::Look);
@@ -112,8 +112,8 @@ void AGGJRootsCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 		PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &AGGJRootsCharacter::StartCrouching);
 		PlayerInputComponent->BindAction("Crouch", IE_Released, this, &AGGJRootsCharacter::StopCrouching);
 
-		PlayerInputComponent->BindAxis("MoveForward", this, &AGGJRootsCharacter::MoveForward);
-		PlayerInputComponent->BindAxis("MoveRight", this, &AGGJRootsCharacter::MoveRight);
+		//PlayerInputComponent->BindAxis("MoveForward", this, &AGGJRootsCharacter::MoveForward);
+		//PlayerInputComponent->BindAxis("MoveRight", this, &AGGJRootsCharacter::MoveForward);
 
 
 		PlayerInputComponent->BindAxis("LookUp", this, &AGGJRootsCharacter::LookUp);
