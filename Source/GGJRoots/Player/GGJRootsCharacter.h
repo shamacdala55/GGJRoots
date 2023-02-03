@@ -37,10 +37,25 @@ class AGGJRootsCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* LookAction;
 
+
+
 public:
 	AGGJRootsCharacter();
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ScoreBoard")
+		int32 FinalPoints;
 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ScoreBoard")
+		int32 FinalDeath;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ScoreBoard")
+		float FinalTime;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ScoreBoard")
+		int32 FinalScore;
 protected:
 
 	/** Called for movement input */
@@ -72,7 +87,7 @@ protected:
 	void Turn(float Val);
 
 
-
+	
 	void MoveForward(float Val);
 	void MoveRight(float Val);
 
