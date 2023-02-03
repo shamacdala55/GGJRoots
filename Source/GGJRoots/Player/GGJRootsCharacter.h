@@ -78,17 +78,25 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
-protected:
+
+	UFUNCTION(BlueprintCallable)
 	void StartCrouching();
+	UFUNCTION(BlueprintCallable)
 	void StopCrouching();
 
-
+	UFUNCTION(BlueprintCallable)
 	void LookUp(float Val);
+	UFUNCTION(BlueprintCallable)
 	void Turn(float Val);
 
 
+<<<<<<< HEAD
 	
+=======
+	UFUNCTION(BlueprintCallable)
+>>>>>>> 709e8ae87d43666e3c7ab692ddc8e0041dfc58d6
 	void MoveForward(float Val);
+	UFUNCTION(BlueprintCallable)
 	void MoveRight(float Val);
 
 public:
