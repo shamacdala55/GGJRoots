@@ -90,12 +90,9 @@ public:
 	void Turn(float Val);
 
 
-<<<<<<< HEAD
-	
-=======
 	UFUNCTION(BlueprintCallable)
->>>>>>> 709e8ae87d43666e3c7ab692ddc8e0041dfc58d6
 	void MoveForward(float Val);
+
 	UFUNCTION(BlueprintCallable)
 	void MoveRight(float Val);
 
