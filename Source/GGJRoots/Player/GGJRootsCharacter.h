@@ -56,6 +56,15 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ScoreBoard")
 		int32 FinalScore;
+
+	//Attributes
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
+		int32 CurrentLife;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
+		int32 MaxLife;
 protected:
 
 	/** Called for movement input */

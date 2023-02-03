@@ -56,7 +56,14 @@ AGGJRootsCharacter::AGGJRootsCharacter()
 	FinalDeath = 0;
 	FinalTime = 0.f;
 	FinalScore = 0;
+
+	// Character Attribtes
+	CurrentLife = MaxLife;
+	MaxLife = 3;
+
+
 }
+
 
 void AGGJRootsCharacter::BeginPlay()
 {
