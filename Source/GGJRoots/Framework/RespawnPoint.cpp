@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Framework/RespawnPoint.h"
+#include "RespawnPoint.h"
 
 // Sets default values
 ARespawnPoint::ARespawnPoint()
