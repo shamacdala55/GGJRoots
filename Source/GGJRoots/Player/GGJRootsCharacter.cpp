@@ -103,9 +103,9 @@ void AGGJRootsCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 
 
 
-		//PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AGGJRootsCharacter::BeginInteract);
-		//PlayerInputComponent->BindAction("Interact", IE_Released, this, &AGGJRootsCharacter::EndInteract);
-
+		/*PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AGGJRootsCharacter::BeginInteract);
+		PlayerInputComponent->BindAction("Interact", IE_Released, this, &AGGJRootsCharacter::EndInteract);
+		*/
 
 
 
