@@ -30,7 +30,7 @@ AGGJRootsCharacter::AGGJRootsCharacter()
 
 	// Note: For faster iteration times these variables, and many more, can be tweaked in the Character Blueprint
 	// instead of recompiling to adjust them
-	GetCharacterMovement()->JumpZVelocity = 700.f;
+	GetCharacterMovement()->JumpZVelocity = 650.f;
 	GetCharacterMovement()->AirControl = 0.35f;
 	GetCharacterMovement()->MaxWalkSpeed = 500.f;
 	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
@@ -49,7 +49,21 @@ AGGJRootsCharacter::AGGJRootsCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+
+
+	// Score systenm Attributes
+	FinalPoints = 0;
+	FinalDeath = 0;
+	FinalTime = 0.f;
+	FinalScore = 0;
+
+	// Character Attribtes
+	CurrentLife = MaxLife;
+	MaxLife = 3;
+
+
 }
+
 
 void AGGJRootsCharacter::BeginPlay()
 {
@@ -79,7 +93,7 @@ void AGGJRootsCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 
 		//Moving
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AGGJRootsCharacter::Move);
+		//EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AGGJRootsCharacter::Move);
 
 		//Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AGGJRootsCharacter::Look);
@@ -89,17 +103,17 @@ void AGGJRootsCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 
 
 
-		//PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AGGJRootsCharacter::BeginInteract);
-		//PlayerInputComponent->BindAction("Interact", IE_Released, this, &AGGJRootsCharacter::EndInteract);
-
+		/*PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AGGJRootsCharacter::BeginInteract);
+		PlayerInputComponent->BindAction("Interact", IE_Released, this, &AGGJRootsCharacter::EndInteract);
+		*/
 
 
 
 		PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &AGGJRootsCharacter::StartCrouching);
 		PlayerInputComponent->BindAction("Crouch", IE_Released, this, &AGGJRootsCharacter::StopCrouching);
 
-		PlayerInputComponent->BindAxis("MoveForward", this, &AGGJRootsCharacter::MoveForward);
-		PlayerInputComponent->BindAxis("MoveRight", this, &AGGJRootsCharacter::MoveRight);
+		//PlayerInputComponent->BindAxis("MoveForward", this, &AGGJRootsCharacter::MoveForward);
+		//PlayerInputComponent->BindAxis("MoveRight", this, &AGGJRootsCharacter::MoveForward);
 
 
 		PlayerInputComponent->BindAxis("LookUp", this, &AGGJRootsCharacter::LookUp);

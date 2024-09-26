@@ -37,10 +37,34 @@ class AGGJRootsCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* LookAction;
 
+
+
 public:
 	AGGJRootsCharacter();
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ScoreBoard")
+		int32 FinalPoints;
 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ScoreBoard")
+		int32 FinalDeath;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ScoreBoard")
+		float FinalTime;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ScoreBoard")
+		int32 FinalScore;
+
+	//Attributes
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
+		int32 CurrentLife;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
+		int32 MaxLife;
 protected:
 
 	/** Called for movement input */
@@ -63,17 +87,22 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
-protected:
+
+	UFUNCTION(BlueprintCallable)
 	void StartCrouching();
+	UFUNCTION(BlueprintCallable)
 	void StopCrouching();
 
-
+	UFUNCTION(BlueprintCallable)
 	void LookUp(float Val);
+	UFUNCTION(BlueprintCallable)
 	void Turn(float Val);
 
 
-
+	UFUNCTION(BlueprintCallable)
 	void MoveForward(float Val);
+
+	UFUNCTION(BlueprintCallable)
 	void MoveRight(float Val);
 
 public:
